@@ -11,8 +11,19 @@ void setup() {
 // counter will overflow to negative number
 void loop() {
     arduboy.clear();
-    counter = counter + 1;
     arduboy.setCursor(0,0);
+
+    if (arduboy.pressed(A_BUTTON) == true) {
+        counter = counter + 1;
+    }
+
+    if (arduboy.pressed(B_BUTTON) == true) {
+            counter = counter - 1;
+    }
+    if (counter >= 100) {
+        arduboy.setCursor(30, 30);
+        arduboy.print ("DASKDHJ");
+    }
     arduboy.print(counter);
     arduboy.display();
 }
